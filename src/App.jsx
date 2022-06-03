@@ -35,7 +35,7 @@ useEffect(() => {
   return (
     <div className="App">
       <button onClick={getLatLong}>Get Location</button>
-      <h1>{`${lon} ${lat}`}</h1>
+      <h1></h1>
     </div>
   )
 }
