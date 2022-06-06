@@ -1,10 +1,51 @@
 .App {
+margin: 0;
+
 background: lightcyan;
 min-height: 100vh;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+}
+
+.icon__container {
+  background-color: rgb(49, 52, 96);
+  
+  min-width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon__container span {
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+}
+
+.load-file__icon {
+  font-size: 200px;
+  color: #47cbe7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .load-file__icon {
+    animation: load-file-spin infinite 6s linear;
+  }
+}
+
+@keyframes load-file-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .card-wheater__container {
@@ -16,5 +57,5 @@ align-items: center;
   text-align: center;
 
   background-color: lightcoral;
-  width: min(200px, 80%);
+  width: min(400px, 85%);
 }
