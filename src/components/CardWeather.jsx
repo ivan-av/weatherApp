@@ -2,7 +2,9 @@ import React from 'react'
 
 const CardWeather = () => {
   return (
-    <div>CardWeather</div>
+    <div className='card-wheater__container'>
+        Info
+    </div>
   )
 }
 

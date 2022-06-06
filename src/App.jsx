@@ -1,41 +1,42 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import axios from 'axios'
+import CardWeather from './components/CardWeather'
 
 function App() {
-  const [obj, setObj] = useState()
+  const [latLon, setLatLon] = useState()
+  const [weather, setWeather] = useState()
 
-  let lat, lon
-
-  const getLatLong = () => {
-
+  useEffect (() => {
     const success = pos => {
-      console.log(pos.coords)
-      lat = pos.coords.latitude
-      lon = pos.coords.longitude
-      setObj({lat,lon})
-    }
+      const lat = pos.coords.latitude
+      const lon = pos.coords.longitude
+      setLatLon({ lat, lon })
+  }
 
     navigator.geolocation.getCurrentPosition(success)
+  }, [])
+
+  useEffect(() => {
+    if(latLon !== undefined) {
+    const API_KEY = '413034c171e2df839ee5fe0140c3b96f'
+    const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latLon?.lat}&lon=${latLon?.lon}&appid=${API_KEY}`
+
+    axios.get(URL)
+    .then(res => setWeather(res.data))
+    .catch(err => console.log(err))
   }
+}, [latLon])
 
-
-const API_KEY = '413034c171e2df839ee5fe0140c3b96f'
-
-
-useEffect(() => {
-  if(obj !== undefined) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${obj?.lat}&lon=${obj?.lon}&appid=${API_KEY}`
-
-    axios.get(url)
-    .then(res => console.log('Respuesta de la API', res.data))
-  }
-}, [obj])
+console.log(weather)
 
   return (
     <div className="App">
-      <button onClick={getLatLong}>Get Location</button>
-      <h1></h1>
+      <h1>{weather?.name}</h1>
+      <h2>{weather?.clouds.all} %</h2>
+      <h2>Temperature: {(weather?.main.temp -273.15).toFixed(1)} °C</h2>
+      <CardWeather 
+      />
     </div>
   )
 }
