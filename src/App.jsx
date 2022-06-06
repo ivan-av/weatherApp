@@ -32,10 +32,9 @@ console.log(weather)
 
   return (
     <div className="App">
-      <h1>{weather?.name}</h1>
-      <h2>{weather?.clouds.all} %</h2>
-      <h2>Temperature: {(weather?.main.temp -273.15).toFixed(1)} °C</h2>
       <CardWeather 
+      latLon = {latLon}
+      weather = {weather}
       />
     </div>
   )
