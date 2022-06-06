@@ -24,7 +24,7 @@ function App() {
   useEffect(() => {
     if(latLon !== undefined) {
     const API_KEY = '413034c171e2df839ee5fe0140c3b96f'
-    const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latLon?.lat}&lon=${latLon?.lon}&appid=${API_KEY}&units=metric&lang={sp}`
+    const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latLon?.lat}&lon=${latLon?.lon}&appid=${API_KEY}&units=metric`
 
     axios.get(URL)
     .then(res => setWeather(res.data))
@@ -32,20 +32,20 @@ function App() {
     
   }
 
-}, [latLon])
+  }, [latLon])
 
-useEffect(() => {
-  if(weather!==undefined){
-    setVisibility(true)
-    setHide(false)
-  }
-},[weather])
+  useEffect(() => {
+    if(weather!==undefined){
+      setVisibility(true)
+      setHide(false)
+    }
+  },[weather])
 
 console.log(weather)
 
   return (
-    <div className="App">
-      
+    <div className="App" style={{backgroundImage: "url(" + `https://source.unsplash.com/random/min100vh/?${weather?.weather[0].main},weather` + ")"}}>
+      {/* Card with the info of the weather, it has props of the lat and long of the user and prop for the api. It's manteined hidden while the info of the api shows*/}
       {visibility ? 
         <CardWeather
         latLon = {latLon}
@@ -53,6 +53,7 @@ console.log(weather)
         />
       : null }
 
+      {/* Slide that appears while the info of the apu shows */}
       {hide ? 
         <LoadFile /> 
       : null }

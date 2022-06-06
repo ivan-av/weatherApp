@@ -17,7 +17,7 @@ const CardWeather = ({latLon, weather}) => {
       {/* Wind */}
       <h2>Wind speed: {weather?.wind.speed.toFixed(1)} meter/sec</h2>
       {/* Weather */}
-      {/* <img src= {`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@4x.png`} alt="weather icon" /> */}
+      <img src= {`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@4x.png`} alt="weather icon" />
       <h2>Weather: {weather?.weather[0].main}, {weather?.weather[0].description}</h2>
       <h2>Clouds: {weather?.clouds.all}%</h2>
     </div>

@@ -1,7 +1,9 @@
+:root {
+  --tester-border: solid 2px;
+}
+
 .App {
 margin: 0;
-
-background: lightcyan;
 min-height: 100vh;
 display: flex;
 flex-direction: column;
@@ -9,6 +11,8 @@ justify-content: center;
 align-items: center;
 }
 
+
+/* --------------------------------------------------- */
 .icon__container {
   background-color: rgb(49, 52, 96);
   
@@ -47,6 +51,7 @@ align-items: center;
     transform: rotate(360deg);
   }
 }
+/* -------------------------------------------------------------------- */
 
 .card-wheater__container {
   display: flex;
@@ -58,4 +63,6 @@ align-items: center;
 
   background-color: lightcoral;
   width: min(400px, 85%);
+
+  border: var(--tester-border) green;
 }
