@@ -15,7 +15,7 @@ const CardWeather = ({latLon, weather}) => {
       <div className='card__weather-section'>
 
         <div className='card__picture'>  
-          <img className='picture__wheater' src= {`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@4x.png`} alt="weather icon" />
+          <img className='picture__wheater' src= {`https://openweathermap.org/img/wn/${weather?.weather[0].icon}@4x.png`} alt="weather icon" />
         </div>
 
         <div className='card__weather-info'>
