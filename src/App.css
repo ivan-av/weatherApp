@@ -63,14 +63,14 @@ align-items: center;
   
   text-align: center;
 
-  background-color: rgba(0, 0, 0, 0.284);
+  background-color: rgba(0, 0, 0, 0.547);
   width: min(300px, 85%);
 
-  border: 5px solid rgba(255, 255, 255, 0.014);
+  border: 5px solid rgba(255, 255, 255, 0.18);
 }
 
 .card__country{
-  background-color: rgba(36, 36, 36, 0.487);
+  background-color: rgba(17, 17, 17, 0.487);
 
   padding: 10px 0;
 
@@ -118,6 +118,16 @@ align-items: center;
 
   border-radius: 5px;
   /* border: var(--tester-border) green; */
+}
+
+.card__hover {
+  border-radius: 5px;
+  padding: 0 2px;
+}
+
+.card__hover:hover{
+  background-color: rgb(58, 112, 112);
+  transition: 0.25s;
 }
 
 .weather__title{
