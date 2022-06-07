@@ -151,7 +151,7 @@ align-items: center;
 }
 
 .card__button:hover {
-  background-color: rgba(36, 36, 36, 0.817);
+  background-color: rgba(133, 182, 228, 0.817);
   transition: 0.5s;
   cursor: pointer;
 }

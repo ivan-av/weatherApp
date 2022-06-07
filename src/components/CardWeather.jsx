@@ -1,8 +1,26 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 
-// const [toggleTemp, settoggleTemp] = useState('cent')
 
 const CardWeather = ({latLon, weather}) => {
+  
+  let [tempType, setTempType] = useState('°C')
+  let [tempInfo, setTempInfo] = useState('°F')
+  
+
+  const toggleTemp = () => {
+
+    if(tempType ==='°C'){
+      tempType = setTempType('°F')
+      tempInfo = setTempInfo('°C')
+    }
+    else {
+      tempType = setTempType('°C')
+      tempInfo = setTempInfo('°F')
+    }
+  }
+
+
   return (
     <div className='card-wheater__container'>
       
@@ -21,9 +39,9 @@ const CardWeather = ({latLon, weather}) => {
         <div className='card__weather-info'>
           <div className='weather__title'>{weather?.weather[0].main}, {weather?.weather[0].description}</div>
           <div>Clouds: <b>{weather?.clouds.all}%</b></div>
-          <div>Temperature: <b>{weather?.main.temp.toFixed(1)} °C</b></div>
-          <div>Feels like: <b>{weather?.main.feels_like.toFixed(1)} °C</b></div>
-          <div>Min - Max: <b>{weather?.main.temp_min.toFixed(1)} °C - {weather?.main.temp_max.toFixed(1)} °C</b></div>
+          <div>Temperature: <b>{(weather?.main.temp).toFixed(1)} {tempType}</b></div>
+          <div>Feels like: <b>{(weather?.main.feels_like).toFixed(1)} {tempType}</b></div>
+          <div>Min - Max: <b>{(weather?.main.temp_min).toFixed(1)} {tempType} - {(weather?.main.temp_max).toFixed(1)} {tempType}</b></div>
           {/* Pressure */}
           <div>Pressure: <b>{weather?.main.pressure} hPa</b></div>
           {/* Humidity */}
@@ -35,8 +53,8 @@ const CardWeather = ({latLon, weather}) => {
       </div>
     
       <div className='card__button-section'>
-        <button className='card__button'>
-          Change to 
+        <button className='card__button' onClick={toggleTemp}>
+          Change to {tempInfo}
         </button>
       </div>
 
