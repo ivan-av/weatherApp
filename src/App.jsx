@@ -36,13 +36,6 @@ function App() {
   }, [latLon])
 
   useEffect(() => {
-    if(weather!==undefined){
-      setVisibility(true)
-      setHide(false)
-    }
-  },[weather])
-
-  useEffect(() => {
     if(weather?.weather[0].main === 'Atmosphere'){
       urlImage = setUrlImage('https://images.unsplash.com/photo-1603794052293-650dbdeef72c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=812&q=80')
     } else if (weather?.weather[0].main === 'Clear') {
@@ -57,6 +50,11 @@ function App() {
       urlImage = setUrlImage('https://images.unsplash.com/photo-1510865159849-074d78c1690a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80')
     } else if (weather?.weather[0].main === 'Thunderstorm') {
       urlImage = setUrlImage('https://images.unsplash.com/photo-1509401934319-cb35b87bf39e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
+    }
+
+    if(weather!==undefined){
+      setVisibility(true)
+      setHide(false)
     }
   },[weather])
 
