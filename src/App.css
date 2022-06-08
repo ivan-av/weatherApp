@@ -1,6 +1,9 @@
 /* :root {
   --tester-border: solid 2px;
 } */
+.body{
+  background-color: rgb(49, 52, 96);
+}
 
 .App {
 margin: 0;
