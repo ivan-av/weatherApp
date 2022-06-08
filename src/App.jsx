@@ -45,7 +45,7 @@ console.log(weather)
 
   return (
     <div className="App" style={{
-      backgroundImage: `url(./src/assets/img/jpg/${weather?.weather[0].main}.jpg)`, 
+      backgroundImage: `url(src/assets/img/jpg/${weather?.weather[0].main}.jpg)`, 
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       }}>
