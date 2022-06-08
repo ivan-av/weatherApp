@@ -43,17 +43,29 @@ const CardWeather = ({latLon, weather}) => {
         </div>
 
         <div className='card__weather-info'>
-          <div className='weather__title'>{weather?.weather[0].main}, {weather?.weather[0].description}</div>
-          <div className='card__hover'>Clouds: <b>{weather?.clouds.all}%</b></div>
-          <div className='card__hover'>Temperature: <b>{(weather?.main.temp * changeTemp + constFarenheit).toFixed(1)} {tempType}</b></div>
-          <div className='card__hover'>Feels like: <b>{(weather?.main.feels_like * changeTemp + constFarenheit).toFixed(1)} {tempType}</b></div>
-          <div className='card__hover'>Min - Max: <b>{(weather?.main.temp_min * changeTemp + constFarenheit).toFixed(1)} {tempType} - {(weather?.main.temp_max * changeTemp + constFarenheit).toFixed(1)} {tempType}</b></div>
-          {/* Pressure */}
-          <div className='card__hover'>Pressure: <b>{weather?.main.pressure} hPa</b></div>
-          {/* Humidity */}
-          <div className='card__hover'>Humidity: <b>{weather?.main.humidity}%</b></div>
-          {/* Wind */}
-          <div className='card__hover'>Wind speed: <b>{weather?.wind.speed.toFixed(1)} m/s</b></div>
+          <div className='card__principal-section card__hover'>
+            <div className='weather__temperature'>{(weather?.main.temp * changeTemp + constFarenheit).toFixed(1)} {tempType}</div>
+            <div className='weather__title'>{weather?.weather[0].main}, {weather?.weather[0].description}</div>
+            <div className='card__hover weather__min-max'>{`L: ${(weather?.main.temp_min * changeTemp + constFarenheit).toFixed(1)} ${tempType} | H: ${(weather?.main.temp_max * changeTemp + constFarenheit).toFixed(1)} ${tempType}`}</div>
+          </div>
+          
+          <div className='card__secondary-section'>
+            <div className='card__hover card__data'>
+            <i className='bx bxs-cloud' ></i>
+              <span>Clouds:</span> <b>{weather?.clouds.all}<span>%</span></b></div>
+            {/* Pressure */}
+            <div className='card__hover card__data'>
+            <i className='bx bxs-chevrons-down'></i>
+            <span>Pressure:</span> <b>{weather?.main.pressure}<span> hPa</span></b></div>
+            {/* Humidity */}
+            <div className='card__hover card__data'>
+            <i className='bx bxs-droplet'></i>
+            <span>Humidity:</span> <b>{weather?.main.humidity}<span>%</span></b></div>
+            {/* Wind */}
+            <div className='card__hover card__data'>
+            <i className='bx bx-wind'></i>
+            <span>Wind speed:</span> <b>{weather?.wind.speed.toFixed(1)}<span> m/s</span></b></div>
+          </div>
         </div>
 
       </div>

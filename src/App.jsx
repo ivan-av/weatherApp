@@ -44,7 +44,11 @@ function App() {
 console.log(weather)
 
   return (
-    <div className="App" style={{backgroundImage: "url(" + `https://source.unsplash.com/random/min100vh/?${weather?.weather[0].main},weather` + ")"}}>
+    <div className="App" style={{
+      backgroundImage: `url(./src/assets/img/jpg/${weather?.weather[0].main}.jpg)`, 
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      }}>
       {/* Card with the info of the weather, it has props of the lat and long of the user and prop for the api. It's manteined hidden while the info of the api shows*/}
       {visibility ? 
         <CardWeather
