@@ -3,6 +3,7 @@ import './App.css'
 import axios from 'axios'
 import CardWeather from './components/CardWeather'
 import LoadFile from './components/loadFile'
+import background from './assets/img/jpg/Clouds.jpg'
 
 function App() {
   const [latLon, setLatLon] = useState()
@@ -45,7 +46,7 @@ console.log(weather)
 
   return (
     <div className="App" style={{
-      backgroundImage: `url(src/assets/img/jpg/Clouds.jpg)`, 
+      backgroundImage: `url(${background})`, 
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       }}>
