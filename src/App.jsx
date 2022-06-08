@@ -52,11 +52,15 @@ function App() {
       urlImage = setUrlImage('https://images.unsplash.com/photo-1509401934319-cb35b87bf39e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
     }
 
+  },[weather])
+
+  useEffect(() => {
     if(weather!==undefined){
       setVisibility(true)
       setHide(false)
     }
-  },[weather])
+    
+  },[urlImage])
 
 console.log(weather)
 
